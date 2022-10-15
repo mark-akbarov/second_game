@@ -1,5 +1,8 @@
 from django.db import models
+
+from user.models.base import User
 from core.base_model import BaseModel
+from file.models import File
 
 
 class Collection(BaseModel):
@@ -11,17 +14,11 @@ class Collection(BaseModel):
 
 class Item(BaseModel):
     title = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='pics/%Y/%m/%d')
-    collection = models.ForeignKey(Collection, on_delete=models.CASCADE, related_name='item')
+    image = models.ForeignKey(File, on_delete=models.CASCADE)
+    collection = models.ForeignKey(Collection, on_delete=models.CASCADE, related_name='items')
+    votes = models.IntegerField(default=0)
 
     def __str__(self) -> str:
         return self.title
 
 
-class Vote(BaseModel):
-    collection = models.ForeignKey(Collection, on_delete=models.CASCADE, related_name='vote')
-    item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='vote') 
-    vote = models.IntegerField(default=0)
-
-    def __str__(self) -> str:
-        return self.item__name   
