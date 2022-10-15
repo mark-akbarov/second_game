@@ -112,6 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'user.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -139,3 +140,13 @@ import os
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
+SENDGRID_API_KEY = os.environ.get(
+    'SENDGRID_API_KEY', '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'
+)
+SEND_GRID_FROM_EMAIL = os.environ.get('SEND_GRID_FROM_EMAIL', 'info@novalabtech.com')
+
+SMS_LOGIN = os.environ.get('SMS_LOGIN', 'novoland')
+SMS_PASSWORD = os.environ.get('SMS_PASSWORD', 'Vt2B5aF45p')
+CORS_ALLOW_ALL_ORIGINS = True
