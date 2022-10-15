@@ -14,3 +14,7 @@ class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = ['id', 'title', 'collection' , 'image']
+
+
+class VoteSerializer(serializers.Serializer):
+    item_id = serializers.IntegerField()

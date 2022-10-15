@@ -10,7 +10,7 @@ router.register('collections', CollectionViewSet)
 router.register('items', ItemViewSet)
 
 urlpatterns = [
-    path('collection/<pk>/', VoteAPIView.as_view())
+    path('collections/<pk>/vote/', VoteAPIView.as_view())
 ]
 
 urlpatterns += router.urls
