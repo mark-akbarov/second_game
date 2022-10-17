@@ -1,7 +1,8 @@
-from django.urls import path, include
+from django.urls import path
 from rest_framework.routers import DefaultRouter
 
-from .views import *
+from game.views.collection import CollectionViewSet
+from game.views.item import ItemViewSet, VoteAPIView
 
 
 router = DefaultRouter()

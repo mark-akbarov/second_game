@@ -5,13 +5,8 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 
 
-from .serializers import *
-from .models import *
-
-
-class CollectionViewSet(ModelViewSet):
-    queryset = Collection.objects.all()
-    serializer_class = CollectionSerializer
+from game.serializers.item import ItemSerializer,VoteSerializer
+from game.models.item import Item, Collection
 
 
 class ItemViewSet(ModelViewSet):

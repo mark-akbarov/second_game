@@ -3,14 +3,7 @@ from django.db import models
 from user.models.base import User
 from core.base_model import BaseModel
 from file.models import File
-
-
-class Collection(BaseModel):
-    title = models.CharField(max_length=255)
-
-    def __str__(self) -> str:
-        return self.title
-
+from game.models.collection import Collection
 
 class Item(BaseModel):
     title = models.CharField(max_length=255)
@@ -20,5 +13,3 @@ class Item(BaseModel):
 
     def __str__(self) -> str:
         return self.title
-
-

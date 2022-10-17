@@ -35,3 +35,12 @@ class FileSerializer(serializers.ModelSerializer):
         if getattr(self.request, 'method', None) == 'GET':
             self.fields['file'] = FileFieldSerializer(context=self.context)
 
+
+class FileUrlSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = File
+        fields = [
+            'id',
+            'name',
+            'file'
+        ]
