@@ -22,3 +22,6 @@ class File(BaseModel):
         self.format = self.file.name.split('.')[-1]
         self.name = self.file.name if not self.name else self.name
         return super(File, self).save()
+
+    def __str__(self) -> str:
+        return self.name
