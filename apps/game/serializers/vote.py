@@ -7,4 +7,4 @@ class VoteSerializer(serializers.Serializer):
 
     class Meta:
         model = Vote
-        fields = ['item', 'user']    
+        fields = ['collection', 'user']    

@@ -14,13 +14,22 @@ class VoteAPIView(APIView):
         serializer = VoteSerializer(data=request.data)
         if serializer.is_valid():
             item = get_object_or_404(Item, pk=serializer.validated_data['item_id'], collection=collection)
-            if Vote.objects.filter(item=item, user=self.request.user.id).exists():
+            if Vote.objects.filter(collection=collection, user=self.request.user.id).exists():
                 return Response({"detail: You have already voted"})
             else: 
                 item.votes += 1
                 item.save()
-                vote = Vote(item=item, user=self.request.user)
+                vote = Vote(collection=collection, item=item, user=self.request.user)
                 vote.save()
             return Response({"detail": "successfully added"})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+#       choice = get_object_or_404(Choice, pk=pk)
+#       if Vote.objects.filter(choice=choice,voter=request.user).exists():
+#           messages.error(request,"Already Voted on this choice")
+#           return redirect..
+#       else:
+#           choice.votes += 1
+#           choice.save()
+#           Vote.objects.create(voter=request.user, choice=choice)
+#       return redirect()
