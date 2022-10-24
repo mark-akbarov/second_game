@@ -23,13 +23,3 @@ class VoteAPIView(APIView):
                 vote.save()
             return Response({"detail": "successfully added"})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-#       choice = get_object_or_404(Choice, pk=pk)
-#       if Vote.objects.filter(choice=choice,voter=request.user).exists():
-#           messages.error(request,"Already Voted on this choice")
-#           return redirect..
-#       else:
-#           choice.votes += 1
-#           choice.save()
-#           Vote.objects.create(voter=request.user, choice=choice)
-#       return redirect()

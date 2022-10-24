@@ -1,4 +1,5 @@
 from django.forms import ValidationError
+from requests import Response
 from rest_framework import serializers
 
 from game.models.collection import Collection
@@ -15,13 +16,6 @@ class CollectionSerializer(serializers.ModelSerializer):
         if Collection.objects.filter(title=title).exists():
             raise ValidationError("Collection with that name already exists")
         return attrs
-    
-    # def to_representation(self, instance):
-    #     representation = super(CollectionSerializer, self).to_representation(instance)
-    #     items = instance.items.all()
-    #     dic = sorted({i.votes:v.title for i,v in zip(items, items)})
-    #     representation['winner'] = dic[1]
-    #     return representation
 
 
 class CollectionListSerializer(serializers.ModelSerializer):
@@ -29,3 +23,16 @@ class CollectionListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Collection
         fields = ['id', 'title', 'item_set']
+    
+    def to_representation(self, instance):
+        representation = super(CollectionListSerializer, self).to_representation(instance)
+        collection = instance.item_set.all()
+        votes = [i.vote_set.count() for i in collection]
+        res = {k.title:v for k,v in zip(collection, votes)}
+        representation['winner'] = sorted(res, key=res.get)[-2]
+        return representation
+
+    def validate(self, data):
+        if len(data['item_set']) != 3:
+            raise serializers.ValidationError("Invalid number of items")
+        return data
