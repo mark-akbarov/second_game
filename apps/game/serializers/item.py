@@ -1,8 +1,7 @@
 from rest_framework import serializers
 
-from game.serializers.vote import VoteSerializer
 from file.serializers import FileUrlSerializer
-from game.models.item import Item
+from game.models.item import Item, ItemCollection
 
 
 class ItemSerializer(serializers.ModelSerializer):
@@ -18,3 +17,9 @@ class ItemListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = ['id', 'title', 'image', 'votes']
+        
+
+class ItemCollectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ItemCollection
+        fields = ['id', 'item', 'collection']
