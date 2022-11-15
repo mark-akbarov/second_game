@@ -1,8 +1,10 @@
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from game.serializers.vote import VoteSerializer
 from game.models.vote import Vote
-from game.models.item import Collection
+from game.models.item import Item
+from game.models.collection import Collection
 
 
 class VoteCreateAPIView(APIView):
@@ -14,5 +16,10 @@ class VoteCreateAPIView(APIView):
             vote.delete()
             return Response({"detail": "vote removed"})
         else:
+            serializer = VoteSerializer(data=request.data)
             Vote.objects.create(collection=collection, user=user)
-            return Response({"detail": "vote added"})
+            if serializer.is_valid():
+                item = get_object_or_404(Item, pk=serializer.validated_data['item_id'], collection=collection)
+                print(item)
+                item.votes += 1
+                return Response({"detail": "vote added"})
