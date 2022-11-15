@@ -1,7 +1,5 @@
 from django.forms import ValidationError
-from requests import Response
 from rest_framework import serializers
-
 from game.models.collection import Collection
 from game.serializers.item import ItemListSerializer
 
@@ -24,13 +22,13 @@ class CollectionListSerializer(serializers.ModelSerializer):
         model = Collection
         fields = ['id', 'title', 'item_set']
     
-    # def to_representation(self, instance):
-    #     representation = super(CollectionListSerializer, self).to_representation(instance)
-    #     collection = instance.item_set.all()
-    #     votes = [i.vote_set.count() for i in collection]
-    #     res = {k.title:v for k,v in zip(collection, votes)}
-    #     representation['winner'] = sorted(res, key=res.get)[-2]
-    #     return representation
+    def to_representation(self, instance):
+        representation = super(CollectionListSerializer, self).to_representation(instance)
+        collection = instance.item_set.all()
+        votes = [i.vote_set.count() for i in collection]
+        res = {k.title:v for k,v in zip(collection, votes)}
+        representation['winner'] = sorted(res, key=res.get)[-2]
+        return representation
 
     def validate(self, data):
         if len(data['item_set']) != 3:
