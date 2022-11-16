@@ -25,7 +25,7 @@ class CollectionListSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super(CollectionListSerializer, self).to_representation(instance)
         collection = instance.item_set.all()
-        votes = [i.votes for i in collection]
+        votes = [i.vote_set.count() for i in collection]
         res = {k.title:v for k,v in zip(collection, votes)}
         representation['winner'] = sorted(res, key=res.get)[1]
         return representation
