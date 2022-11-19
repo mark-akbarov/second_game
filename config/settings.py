@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'easy_thumbnails',
+    'rest_framework_swagger',
+    'drf_yasg',
 
     'core',
     'game',

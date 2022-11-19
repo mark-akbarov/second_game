@@ -21,13 +21,13 @@ class CollectionListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Collection
         fields = ['id', 'title', 'item_set']
-    
+
     def to_representation(self, instance):
         representation = super(CollectionListSerializer, self).to_representation(instance)
         collection = instance.item_set.all()
         votes = [i.vote_set.count() for i in collection]
         res = {k.title:v for k,v in zip(collection, votes)}
-        representation['winner'] = sorted(res, key=res.get)[1]
+        representation['winner'] = sorted(res, key=res.get)
         return representation
 
     def validate(self, data):

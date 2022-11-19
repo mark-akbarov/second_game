@@ -6,3 +6,8 @@ class VoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vote
         fields = ['user', 'collection', 'item']
+        
+
+class VoteCreateSerializer(serializers.Serializer):
+    item_id = serializers.IntegerField()
+    collection_id = serializers.IntegerField()

@@ -9,3 +9,9 @@ class Vote(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    
+    class Meta:
+        unique_together = ['collection', 'item']
+        
+    def __str__(self) -> str:
+        return f"{self.user}.{self.collection}.{self.item}"
