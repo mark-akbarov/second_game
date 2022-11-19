@@ -13,12 +13,11 @@ class VoteListAPIView(ListAPIView):
 
 
 class VoteCreateAPIView(APIView):
-    def post(self, request):
+    def post(self, request, pk):
         serializer = VoteCreateSerializer(data=request.data)
         if serializer.is_valid():
-            collection = get_object_or_404(Collection, pk=serializer.validated_data['collection_id'])
-            item = get_object_or_404(Item, pk=serializer.validated_data['item_id'], collection=collection)
-            print(collection.id, item.id)
+            item = get_object_or_404(Item, pk=serializer.validated_data['item_id'])
+            collection = get_object_or_404(Collection, pk=pk, item=item)
             vote = Vote.objects.filter(user=request.user, collection=collection)
             if vote.exists():
                 vote.delete()

@@ -12,7 +12,7 @@ router.register('items', ItemViewSet)
 
 urlpatterns = [
     path('collections_list/', CollectionListAPIView.as_view()),
-    path('collections/vote/', VoteCreateAPIView.as_view()),
+    path('collections/<pk>/vote/', VoteCreateAPIView.as_view()),
     path('vote_list/', VoteListAPIView.as_view()),
 ]
 

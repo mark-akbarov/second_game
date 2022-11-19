@@ -10,4 +10,3 @@ class VoteSerializer(serializers.ModelSerializer):
 
 class VoteCreateSerializer(serializers.Serializer):
     item_id = serializers.IntegerField()
-    collection_id = serializers.IntegerField()
