@@ -8,9 +8,19 @@ from game.models.collection import Collection
 
 
 class VoteListAPIView(ListAPIView):
-    queryset = Vote.objects.all()
     serializer_class = VoteSerializer
 
+    def get_queryset(self):
+        return Vote.objects.filter(user=self.request.user)
+
+
+class CollectionVoteListAPIView(ListAPIView):
+    serializer_class = VoteSerializer
+    
+    def get_queryset(self):
+        collection = get_object_or_404(Collection, pk=self.kwargs['pk'])
+        return Vote.objects.filter(collection=collection, user=self.request.user)
+ 
 
 class VoteCreateAPIView(APIView):
     def post(self, request, pk):
