@@ -5,7 +5,7 @@ from rest_framework import serializers
 from user.models import User
 
 
-class UserMeSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = [
@@ -14,9 +14,9 @@ class UserMeSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name',
             'birthday',
-            'smartphone_type',
             'about',
             'is_new',
+            'score',
         ]
 
 
@@ -27,3 +27,9 @@ class UserMeMiniSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name'
         ]
+
+
+class UserScoreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['score', ]

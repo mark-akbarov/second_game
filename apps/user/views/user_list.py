@@ -5,12 +5,12 @@ from rest_framework import filters
 
 # Project
 from user.models import User
-from user.serializers.me import UserMeSerializer
+from user.serializers.me import UserSerializer
 
 
 class UserListAPIView(generics.ListAPIView):
     permission_classes = [IsAdminUser]
-    serializer_class = UserMeSerializer
+    serializer_class = UserSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['email']
 

@@ -4,11 +4,11 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
 # Project
-from user.serializers.me import UserMeSerializer
+from user.serializers.me import UserSerializer
 
 
 class UserMeAPIVIew(APIView):
-    serializers_class = UserMeSerializer
+    serializers_class = UserSerializer
     permission_classes = [IsAuthenticated]
 
     def get(self, request):

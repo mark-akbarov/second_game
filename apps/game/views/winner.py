@@ -21,7 +21,14 @@ class UserWinnerAPIView(RetrieveAPIView):
         votes = {i.title:i.vote_set.filter(collection_id=collection).count() for i in item}
         winner = sorted(votes, key=votes.get)[1]
         user_vote = Vote.objects.filter(user=request.user, collection=collection)[0]
+        user = request.user
+        print(user.score)
         if str(winner) == str(user_vote.item):
+            user.score += 10
+            user.save()
             return Response({"detail": "correct!"})
         else:
+            user = request.user
+            user.score -= 5
+            user.save()
             return Response({"detail": "incorrect"})
