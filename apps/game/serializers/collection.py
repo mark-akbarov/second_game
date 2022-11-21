@@ -3,9 +3,11 @@ from game.models.collection import Collection
 from game.serializers.item import ItemSerializer
 
 class CollectionSerializer(serializers.ModelSerializer):
+    item = ItemSerializer(many=True)
+
     class Meta:
         model = Collection
-        fields = ['id', 'title']
+        fields = ['id', 'title', 'item']
 
 
 class CollectionListSerializer(serializers.ModelSerializer):
