@@ -13,3 +13,9 @@ class CollectionSerializer(serializers.ModelSerializer):
         item = obj.item.all()
         votes = {i.title:i.vote_set.filter(collection_id=obj).count() for i in item}
         return votes
+    
+    
+class CollectionMiniSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Collection
+        fields = ['id', 'title']
