@@ -4,7 +4,7 @@ from game.views.round import RoundViewSet
 from game.views.collection import CollectionViewSet
 from game.views.item import ItemViewSet
 from game.views.vote import VoteCreateAPIView, VoteListAPIView, CollectionVoteListAPIView
-from game.views.winner import WinnerAPIView, UserWinnerAPIView
+from game.views.winner import CollectionWinnerAPIView, CheckWinnerAPIView
 
 
 router = DefaultRouter()
@@ -15,10 +15,10 @@ router.register('items', ItemViewSet)
 
 urlpatterns = [
     path('collections/<pk>/vote/', VoteCreateAPIView.as_view()),
-    path('collections/<pk>/winner_item/', WinnerAPIView.as_view()),
-    path('collections/<pk>/check_win/', UserWinnerAPIView.as_view()),
-    path('vote_list/', VoteListAPIView.as_view()),
+    path('collections/<pk>/check_win/', CheckWinnerAPIView.as_view()),
+    path('collections/<pk>/winner_item/', CollectionWinnerAPIView.as_view()),
     path('collections/<pk>/vote_count/', CollectionVoteListAPIView.as_view()),
+    path('vote_list/', VoteListAPIView.as_view()),
 ]
 
 urlpatterns += router.urls

@@ -1,0 +1,283 @@
+[
+    {
+        "model": "game.item",
+        "pk": 1,
+        "fields": {
+            "created_datetime": "2022-11-16T15:13:07.050Z",
+            "modified_datetime": "2022-11-19T08:50:41.100Z",
+            "image": 1,
+            "title": "aston_martin"
+        }
+    },
+    {
+        "model": "game.item",
+        "pk": 2,
+        "fields": {
+            "created_datetime": "2022-11-16T15:13:30.253Z",
+            "modified_datetime": "2022-11-19T08:50:33.086Z",
+            "image": 2,
+            "title": "ferrari"
+        }
+    },
+    {
+        "model": "game.item",
+        "pk": 3,
+        "fields": {
+            "created_datetime": "2022-11-16T15:13:48.964Z",
+            "modified_datetime": "2022-11-16T15:15:53.167Z",
+            "image": 3,
+            "title": "mercedes"
+        }
+    },
+    {
+        "model": "game.collection",
+        "pk": 1,
+        "fields": {
+            "created_datetime": "2022-11-16T15:12:25.457Z",
+            "modified_datetime": "2022-11-19T15:52:48.783Z",
+            "title": "cars",
+            "item": [
+                1,
+                2,
+                3
+            ]
+        }
+    },
+    {
+        "model": "game.collection",
+        "pk": 2,
+        "fields": {
+            "created_datetime": "2022-11-16T15:12:32.545Z",
+            "modified_datetime": "2022-11-19T15:52:42.905Z",
+            "title": "f1",
+            "item": [
+                1,
+                2,
+                3
+            ]
+        }
+    },
+    {
+        "model": "game.collection",
+        "pk": 4,
+        "fields": {
+            "created_datetime": "2022-11-21T16:56:37.294Z",
+            "modified_datetime": "2022-11-21T16:56:42.852Z",
+            "title": "brands",
+            "item": [
+                1,
+                2,
+                3
+            ]
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 32,
+        "fields": {
+            "created_datetime": "2022-11-19T21:02:26.367Z",
+            "modified_datetime": "2022-11-19T21:02:26.402Z",
+            "user": 1,
+            "collection": 2,
+            "item": 1
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 33,
+        "fields": {
+            "created_datetime": "2022-11-19T21:03:10.511Z",
+            "modified_datetime": "2022-11-19T21:03:10.543Z",
+            "user": 2,
+            "collection": 2,
+            "item": 1
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 35,
+        "fields": {
+            "created_datetime": "2022-11-19T21:03:27.561Z",
+            "modified_datetime": "2022-11-19T21:03:27.577Z",
+            "user": 3,
+            "collection": 1,
+            "item": 1
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 36,
+        "fields": {
+            "created_datetime": "2022-11-19T21:03:33.986Z",
+            "modified_datetime": "2022-11-19T21:03:33.997Z",
+            "user": 3,
+            "collection": 2,
+            "item": 1
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 37,
+        "fields": {
+            "created_datetime": "2022-11-19T21:05:31.925Z",
+            "modified_datetime": "2022-11-19T21:05:31.954Z",
+            "user": 4,
+            "collection": 2,
+            "item": 2
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 38,
+        "fields": {
+            "created_datetime": "2022-11-19T21:05:40.545Z",
+            "modified_datetime": "2022-11-19T21:05:40.578Z",
+            "user": 4,
+            "collection": 1,
+            "item": 2
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 39,
+        "fields": {
+            "created_datetime": "2022-11-19T21:06:00.544Z",
+            "modified_datetime": "2022-11-19T21:06:00.575Z",
+            "user": 5,
+            "collection": 1,
+            "item": 2
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 41,
+        "fields": {
+            "created_datetime": "2022-11-19T21:06:21.652Z",
+            "modified_datetime": "2022-11-19T21:06:21.686Z",
+            "user": 5,
+            "collection": 2,
+            "item": 3
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 42,
+        "fields": {
+            "created_datetime": "2022-11-19T21:06:45.600Z",
+            "modified_datetime": "2022-11-19T21:06:45.628Z",
+            "user": 6,
+            "collection": 2,
+            "item": 3
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 43,
+        "fields": {
+            "created_datetime": "2022-11-19T21:07:08.017Z",
+            "modified_datetime": "2022-11-19T21:07:08.045Z",
+            "user": 6,
+            "collection": 1,
+            "item": 3
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 45,
+        "fields": {
+            "created_datetime": "2022-11-21T17:00:24.236Z",
+            "modified_datetime": "2022-11-21T17:00:24.285Z",
+            "user": 1,
+            "collection": 1,
+            "item": 3
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 46,
+        "fields": {
+            "created_datetime": "2022-11-21T17:00:53.679Z",
+            "modified_datetime": "2022-11-21T17:00:53.725Z",
+            "user": 2,
+            "collection": 1,
+            "item": 3
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 47,
+        "fields": {
+            "created_datetime": "2022-11-21T17:01:13.568Z",
+            "modified_datetime": "2022-11-21T17:01:13.602Z",
+            "user": 1,
+            "collection": 4,
+            "item": 3
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 48,
+        "fields": {
+            "created_datetime": "2022-11-21T17:01:23.912Z",
+            "modified_datetime": "2022-11-21T17:01:23.926Z",
+            "user": 2,
+            "collection": 4,
+            "item": 3
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 49,
+        "fields": {
+            "created_datetime": "2022-11-21T17:01:30.581Z",
+            "modified_datetime": "2022-11-21T17:01:30.661Z",
+            "user": 3,
+            "collection": 4,
+            "item": 3
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 50,
+        "fields": {
+            "created_datetime": "2022-11-21T17:01:51.426Z",
+            "modified_datetime": "2022-11-21T17:01:51.530Z",
+            "user": 4,
+            "collection": 4,
+            "item": 3
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 51,
+        "fields": {
+            "created_datetime": "2022-11-21T17:02:02.066Z",
+            "modified_datetime": "2022-11-21T17:02:02.109Z",
+            "user": 5,
+            "collection": 4,
+            "item": 3
+        }
+    },
+    {
+        "model": "game.vote",
+        "pk": 53,
+        "fields": {
+            "created_datetime": "2022-11-21T17:06:03.181Z",
+            "modified_datetime": "2022-11-21T17:06:03.226Z",
+            "user": 6,
+            "collection": 4,
+            "item": 1
+        }
+    },
+    {
+        "model": "game.round",
+        "pk": 1,
+        "fields": {
+            "collection": [
+                1,
+                2,
+                4
+            ]
+        }
+    }
+]

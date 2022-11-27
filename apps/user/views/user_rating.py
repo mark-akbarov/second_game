@@ -1,4 +1,6 @@
 from rest_framework.generics import ListAPIView
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from rest_framework.filters import OrderingFilter
 from user.serializers.me import UserSerializer, UserScoreSerializer
 from user.models.base import User
@@ -17,3 +19,18 @@ class UserScoreRatingAPIView(ListAPIView):
     
     def get_queryset(self):
         return User.objects.filter(id=self.request.user.id)
+    
+    
+class Leaderboard(APIView):
+    def get(self, request, *args, **kwargs):
+        user = User.objects.all()[::-1]
+        print(user)
+        user_score = {i.username:i.score for i in user}
+        print(user_score)
+        winner_user = sorted(user_score, key=user_score.get)[1]
+        print(winner_user)
+        return Response({
+                "user_score": user_score,
+                "winner": winner_user,
+             })
+    

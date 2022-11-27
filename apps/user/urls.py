@@ -15,7 +15,7 @@ from .views.verify import ReSendVerifyUserAPIView
 from .views.verify import VerifyUserAPIView
 from .views.address import AddressViewSet
 from .views.update_language import UpdateLanguageView
-from .views.user_rating import UserRatingListAPIView, UserScoreRatingAPIView
+from .views.user_rating import UserRatingListAPIView, UserScoreRatingAPIView, Leaderboard
 
 router = DefaultRouter()
 router.register('address', AddressViewSet, basename='address')
@@ -35,5 +35,6 @@ urlpatterns = [
     path('update_language/', UpdateLanguageView.as_view()),
     path('ratings/', UserRatingListAPIView().as_view()),
     path('score/', UserScoreRatingAPIView().as_view()),
+    path('leaderboard/', Leaderboard().as_view()),
 ]
 urlpatterns += router.urls

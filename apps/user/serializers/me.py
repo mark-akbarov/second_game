@@ -32,4 +32,4 @@ class UserMeMiniSerializer(serializers.ModelSerializer):
 class UserScoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['score', ]
+        fields = ['score', 'winner']
