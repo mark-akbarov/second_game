@@ -23,14 +23,18 @@ class UserScoreRatingAPIView(ListAPIView):
     
 class Leaderboard(APIView):
     def get(self, request, *args, **kwargs):
-        user = User.objects.all()[::-1]
-        print(user)
-        user_score = {i.username:i.score for i in user}
-        print(user_score)
-        winner_user = sorted(user_score, key=user_score.get)[1]
-        print(winner_user)
-        return Response({
-                "user_score": user_score,
-                "winner": winner_user,
-             })
+        user = User.objects.all()
+        user_dict = {i.username:i.score for i in user}
+        leaderboard = {k: user_dict[k] for k in sorted(user_dict, key=user_dict.get, reverse=True)}
+        return Response({"leaderboard": leaderboard})
     
+
+class LeaderboardWinner(APIView):
+    def get(self, request, *args, **kwargs):
+        user = User.objects.all()
+        user_dict = {i.score:i.username for i in user}
+        user_votes = [i.score for i in user]
+        user_votes.sort(reverse=True)
+        second_place = user_votes[1]
+        leaderboard_winner = user_dict[second_place]
+        return Response({"leaderboard_winner": leaderboard_winner})

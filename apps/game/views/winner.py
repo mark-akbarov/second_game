@@ -18,7 +18,6 @@ class CheckWinnerAPIView(RetrieveAPIView):
     def get(self, request, pk):
         collection = get_object_or_404(Collection, pk=pk)
         item = collection.item.all()
-        print(item)
         votes = {i.title:i.vote_set.filter(collection_id=collection).count() for i in item}
         winner = sorted(votes, key=votes.get)[1]
         user_vote = Vote.objects.filter(user=request.user, collection=collection)[0]
@@ -32,3 +31,6 @@ class CheckWinnerAPIView(RetrieveAPIView):
             user.score -= 5
             user.save()
             return Response({"detail": "incorrect"})
+        
+    def get_queryset(self):
+        return Vote.objects.all()
