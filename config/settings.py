@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-oxm1+09zto0ft(i0_u!ir9jn23oi(mx5^t+nw6#pywyusig^a!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -152,3 +152,16 @@ SEND_GRID_FROM_EMAIL = os.environ.get('SEND_GRID_FROM_EMAIL', 'info@novalabtech.
 SMS_LOGIN = os.environ.get('SMS_LOGIN', 'novoland')
 SMS_PASSWORD = os.environ.get('SMS_PASSWORD', 'Vt2B5aF45p')
 CORS_ALLOW_ALL_ORIGINS = True
+
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    },
+}
+
+
+LOGIN_URL = 'rest_framework:login'
+LOGOUT_URL = 'rest_framework:logout'
