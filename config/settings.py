@@ -143,6 +143,13 @@ MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+        'rest_framework.parsers.JSONParser',
+    ]
+}
 
 SENDGRID_API_KEY = os.environ.get(
     'SENDGRID_API_KEY', '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'

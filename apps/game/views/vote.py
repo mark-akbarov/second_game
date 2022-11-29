@@ -1,4 +1,4 @@
-from rest_framework.generics import get_object_or_404, ListAPIView
+from rest_framework.generics import get_object_or_404, ListAPIView, GenericAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from game.serializers.vote import VoteSerializer, VoteCreateSerializer
@@ -22,7 +22,8 @@ class CollectionVoteListAPIView(ListAPIView):
         return Vote.objects.filter(collection=collection, user=self.request.user)
  
 
-class VoteCreateAPIView(APIView):
+class VoteCreateAPIView(GenericAPIView):
+    serializer_class = VoteCreateSerializer
     def post(self, request, pk):
         serializer = VoteCreateSerializer(data=request.data)
         if serializer.is_valid():
