@@ -22,7 +22,6 @@ from .swagger_schema import schema_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/user/', include('user.urls')),
-    path('api/v1/file/', include('file.urls')),
     path('api/v1/game/', include('game.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

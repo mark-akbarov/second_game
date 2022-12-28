@@ -1,0 +1,16 @@
+[
+    {
+        "model": "game.collection",
+        "pk": 1,
+        "fields": {
+            "created_datetime": "2022-12-28T06:41:22.119Z",
+            "modified_datetime": "2022-12-28T06:41:22.119Z",
+            "title": "Sport Brands",
+            "item": [
+                1,
+                2,
+                3
+            ]
+        }
+    }
+]

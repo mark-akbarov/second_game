@@ -46,8 +46,6 @@ INSTALLED_APPS = [
     'core',
     'game',
     'user',
-    'file',
-
 ]
 
 MIDDLEWARE = [

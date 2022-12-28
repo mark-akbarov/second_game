@@ -1,0 +1,32 @@
+[
+    {
+        "model": "game.item",
+        "pk": 1,
+        "fields": {
+            "created_datetime": "2022-12-28T06:39:48.394Z",
+            "modified_datetime": "2022-12-28T06:39:48.394Z",
+            "image": "nike.jpg",
+            "title": "NIKE"
+        }
+    },
+    {
+        "model": "game.item",
+        "pk": 2,
+        "fields": {
+            "created_datetime": "2022-12-28T06:39:59.589Z",
+            "modified_datetime": "2022-12-28T06:39:59.589Z",
+            "image": "adidas.png",
+            "title": "adidas"
+        }
+    },
+    {
+        "model": "game.item",
+        "pk": 3,
+        "fields": {
+            "created_datetime": "2022-12-28T06:40:09.116Z",
+            "modified_datetime": "2022-12-28T06:40:09.116Z",
+            "image": "puma.png",
+            "title": "PUMA"
+        }
+    }
+]
