@@ -1,11 +1,11 @@
-from rest_framework.generics import RetrieveAPIView
+from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.generics import get_object_or_404
 from game.models.collection import Collection
 from game.models.vote import Vote
 
 
-class CollectionWinnerAPIView(RetrieveAPIView):
+class CollectionWinnerAPIView(APIView):
     def get(self, request, pk):
         collection = get_object_or_404(Collection, pk=pk)
         item = collection.item.all()
@@ -14,7 +14,7 @@ class CollectionWinnerAPIView(RetrieveAPIView):
         return Response({"winner": winner})
     
 
-class CheckWinnerAPIView(RetrieveAPIView):
+class CheckWinnerAPIView(APIView):
     def get(self, request, pk):
         collection = get_object_or_404(Collection, pk=pk)
         item = collection.item.all()
