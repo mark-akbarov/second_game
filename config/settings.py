@@ -149,13 +149,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-SENDGRID_API_KEY = os.environ.get(
-    'SENDGRID_API_KEY', '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'
-)
-SEND_GRID_FROM_EMAIL = os.environ.get('SEND_GRID_FROM_EMAIL', 'info@novalabtech.com')
 
-SMS_LOGIN = os.environ.get('SMS_LOGIN', 'novoland')
-SMS_PASSWORD = os.environ.get('SMS_PASSWORD', 'Vt2B5aF45p')
 CORS_ALLOW_ALL_ORIGINS = True
 
 
@@ -170,3 +164,12 @@ SWAGGER_SETTINGS = {
 
 LOGIN_URL = 'rest_framework:login'
 LOGOUT_URL = 'rest_framework:logout'
+
+
+CELERY_BROKER_URL = "redis://localhost:6379"
+CELERY_RESULT_BACKEND = "redis://localhost:6379"
+
+
+EMAIL_HOST = "localhost"
+EMAIL_PORT = 1025
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
